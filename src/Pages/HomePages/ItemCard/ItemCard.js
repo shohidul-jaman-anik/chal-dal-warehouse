@@ -1,12 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ItemCard.css';
 
 const ItemCard = ({ item }) => {
         const { name, price, img, quantity, description, _id } = item;
 
         // Manage Item to Inventory Page:
+        const navigate = useNavigate();
         const manageItem = (id) => {
-                console.log(id)
+                navigate(`/inventory/${id}`);
         }
         return (
                 <div class="col p-3">

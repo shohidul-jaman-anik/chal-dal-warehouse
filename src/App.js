@@ -1,8 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Login from './Pages/Authentication/Login/Login';
 import Home from './Pages/HomePages/Home/Home';
 import Inventory from './Pages/Inventory/Inventory';
 import Navbar from './Pages/SharedPages/Navbar/Navbar';
+import 'react-toastify/dist/ReactToastify.css';
+import Registration from './Pages/Authentication/Registration/Registration';
+import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -10,7 +14,14 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/inventory/:id" element={<Inventory></Inventory>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="/inventory/:id" element={
+          <PrivateRoute>
+            <Inventory></Inventory>
+          </PrivateRoute>}>
+        </Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/registration" element={<Registration></Registration>}></Route>
       </Routes>
     </div>
   );

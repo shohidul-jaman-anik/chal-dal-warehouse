@@ -5,7 +5,7 @@ import banner1 from '../../images/b-1.png'
 const Banner = () => {
         return (
                 <div className="container-fluid">
-                        <div className="pt-5 banner brand-bg row">
+                        <div className="banner brand-bg row">
                                 <div className="col-md-6 d-flex justify-content-center">
                                         <div className="w-75 ms-auto">
                                                 <h1 className="">Explore Your Next</h1>
