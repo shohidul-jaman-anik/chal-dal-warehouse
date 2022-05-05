@@ -1,0 +1,9 @@
+.banner{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+}
+
+.banner img{
+        border-radius: 10px;
+}

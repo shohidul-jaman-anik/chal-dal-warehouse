@@ -1,0 +1,56 @@
+[
+        {
+                "_id": 1,
+                "name": "Chal",
+                "price": 60,
+                "quantity": 199,
+                "description": "Chaldal.com is an online shop available in Dhaka, Chattogram, Jashore, Khulna, Sylhet, Gazipur, Rajshahi and Narayanganj. We believe time is valuable to our",
+                "supplier": "V-chal",
+                "img": "https://i.ibb.co/Sr0pSvz/chal-1.png"
+        },
+        {
+                "_id": 2,
+                "name": "Chal",
+                "price": 60,
+                "quantity": 199,
+                "description": "Chaldal.com is an online shop available in Dhaka, Chattogram, Jashore, Khulna, Sylhet, Gazipur, Rajshahi and Narayanganj. We believe time is valuable to our",
+                "supplier": "V-chal",
+                "img": "https://i.ibb.co/Sr0pSvz/chal-1.png"
+        },
+        {
+                "_id": 3,
+                "name": "Chal",
+                "price": 60,
+                "quantity": 199,
+                "description": "Chaldal.com is an online shop available in Dhaka, Chattogram, Jashore, Khulna, Sylhet, Gazipur, Rajshahi and Narayanganj. We believe time is valuable to our",
+                "supplier": "V-chal",
+                "img": "https://i.ibb.co/Sr0pSvz/chal-1.png"
+        },
+        {
+                "_id": 4,
+                "name": "Chal",
+                "price": 60,
+                "quantity": 199,
+                "description": "Chaldal.com is an online shop available in Dhaka, Chattogram, Jashore, Khulna, Sylhet, Gazipur, Rajshahi and Narayanganj. We believe time is valuable to our",
+                "supplier": "V-chal",
+                "img": "https://i.ibb.co/Sr0pSvz/chal-1.png"
+        },
+        {
+                "_id": 5,
+                "name": "Chal",
+                "price": 60,
+                "quantity": 199,
+                "description": "Chaldal.com is an online shop available in Dhaka, Chattogram, Jashore, Khulna, Sylhet, Gazipur, Rajshahi and Narayanganj. We believe time is valuable to our",
+                "supplier": "V-chal",
+                "img": "https://i.ibb.co/Sr0pSvz/chal-1.png"
+        },
+        {
+                "_id": 6,
+                "name": "Chal",
+                "price": 60,
+                "quantity": 199,
+                "description": "Chaldal.com is an online shop available in Dhaka, Chattogram, Jashore, Khulna, Sylhet, Gazipur, Rajshahi and Narayanganj. We believe time is valuable to our",
+                "supplier": "V-chal",
+                "img": "https://i.ibb.co/Sr0pSvz/chal-1.png"
+        }
+]

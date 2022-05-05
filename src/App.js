@@ -1,9 +1,17 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './Pages/HomePages/Home/Home';
+import Inventory from './Pages/Inventory/Inventory';
+import Navbar from './Pages/SharedPages/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-
+      <Navbar></Navbar>
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/inventory/:id" element={<Inventory></Inventory>}></Route>
+      </Routes>
     </div>
   );
 }

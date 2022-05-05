@@ -1,0 +1,15 @@
+.brand-color{
+        color: rgb(0, 247, 0);
+}
+.brand-bg{
+}
+.brand-btn{
+        background-color: rgb(0, 247, 0);
+        font-weight: bold;
+        border: 2px solid green;
+        font-size: 18px;
+}
+.brand-btn:hover{
+        transform: scale(1.1);
+        transition: transform .3s ease-in-out;
+}
