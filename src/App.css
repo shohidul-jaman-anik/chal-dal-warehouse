@@ -1,23 +1,27 @@
 .brand-color{
-        color: rgb(0, 247, 0);
+        color: orangered;
 }
 .brand-bg{
 }
 .brand-btn{
-        background-color: rgb(0, 247, 0);
+        background-color: orangered;
         font-weight: bold;
-        border: 2px solid green;
+        border: 2px solid orangered;
         font-size: 18px;
-        color: black;
+        color: white;
 }
 .login-btn{
-        background-color: rgb(0, 247, 0);
+        background-color: orangered;
         font-weight: bold;
-        border: 2px solid green;
+        border: 2px solid orangered;
         font-size: 18px;
-        color: black;  
+        color: white;  
+}
+.login-btn:hover{
+        color: white; 
 }
 .brand-btn:hover{
         transform: scale(1.1);
         transition: transform .3s ease-in-out;
+        color: white;
 }

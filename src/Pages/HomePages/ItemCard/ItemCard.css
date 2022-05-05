@@ -1,3 +1,10 @@
 .item-img{
-        height: 250px;
+        height: 280px;
+}
+.item-img img{
+        height: 100%;
+}
+.item-detail{
+        box-shadow: 20px 20px 100px lightgray;
+        border-radius: 10px;
 }

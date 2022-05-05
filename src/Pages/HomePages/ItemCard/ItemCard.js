@@ -12,9 +12,9 @@ const ItemCard = ({ item }) => {
         }
         return (
                 <div class="col p-3">
-                        <div class="card h-100">
+                        <div class="item-detail h-100">
                                 <div class="item-img p-3">
-                                        <img src={img} class="img-fluid rounded-3" alt="..." />
+                                        <img src={img} class="img-fluid w-100 rounded-3" alt="..." />
                                 </div>
                                 <div class="card-body">
                                         <h4 class="card-title fw-bold">{name}</h4>
@@ -22,7 +22,7 @@ const ItemCard = ({ item }) => {
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center ps-3 pe-3 pt-3 pb-3">
                                         <div>
-                                                <h6><small>Quantity: {quantity}</small> </h6>
+                                                <h6><small>Quantity: {quantity} kg</small> </h6>
                                                 <h2 className="brand-color">{price}৳</h2>
                                         </div>
                                         <div>

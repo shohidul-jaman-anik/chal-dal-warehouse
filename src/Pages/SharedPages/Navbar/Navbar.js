@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../Hooks/firebase.init';
 import './Navbar.css';
+import defaultUser from '../../images/defaultUser.png';
 
 const Navbar = () => {
         const [user] = useAuthState(auth);
@@ -28,6 +29,15 @@ const Navbar = () => {
                                                         </li>
                                                         <li class="nav-item">
                                                                 <Link to="/manage-inventories" class="nav-link active fs-5">Manage Inventories</Link>
+                                                        </li>
+                                                        <li className="nav-item">
+                                                                {
+                                                                        user?.email ?
+                                                                                <img src={user?.photoURL ? user?.photoURL : defaultUser} className="img-fluid rounded-circle me-3 border border-dark border-3" width="50" alt="" />
+                                                                                :
+                                                                                ''
+
+                                                                }
                                                         </li>
                                                         {
                                                                 user ?
