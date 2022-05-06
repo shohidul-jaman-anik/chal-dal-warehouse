@@ -2,9 +2,16 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import LoadItems from '../../../Hooks/LoadItems';
 import './ManageInventory.css';
+import stockImg from '../../images/stock.png';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventory = () => {
         const [items, setItems] = LoadItems();
+
+        const navigate = useNavigate();
+        const navigateToAddNewItemPage = () => {
+                navigate('/add-item')
+        }
 
         // Handle Delete Item:
         const handleDeleteItem = deleteItem => {
@@ -29,6 +36,23 @@ const ManageInventory = () => {
         }
         return (
                 <div className="mt-5 container">
+
+                        <div className="">
+                                <div className="text-center">
+                                        <div className="add-item-section">
+                                                <h3 className="brand-color fw-bold">Add New Item</h3>
+                                                <div className="d-flex align-items-center justify-content-between">
+                                                        <div>
+                                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Green_arrow_right.svg/320px-Green_arrow_right.svg.png" className="img-fluid" height="60" width="60" alt="" />
+                                                        </div>
+
+                                                        <div className="d-grid gap-2 mt-2">
+                                                                <button onClick={() => navigateToAddNewItemPage()} type="submit" className="btn login-btn">Add New Item</button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
                         <h3 className="brand-color text-center pb-5 mt-5 fw-bold text-decoration-underline">Manage Your All Items</h3>
                         <table className="table">
                                 <thead>

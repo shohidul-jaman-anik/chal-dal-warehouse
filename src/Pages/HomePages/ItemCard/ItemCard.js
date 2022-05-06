@@ -23,7 +23,7 @@ const ItemCard = ({ item }) => {
                                 <div className="d-flex justify-content-between align-items-center ps-3 pe-3 pt-3 pb-3">
                                         <div>
                                                 <h6><small>Quantity: {quantity} kg</small> </h6>
-                                                <h2 className="brand-color">{price}৳</h2>
+                                                <h2 className="brand-color">{price}৳/kg</h2>
                                         </div>
                                         <div>
                                                 <button onClick={() => manageItem(_id)} className="btn brand-btn">

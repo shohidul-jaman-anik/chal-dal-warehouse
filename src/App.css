@@ -20,6 +20,7 @@
 }
 .login-btn:hover{
         color: white; 
+        background-color: rgb(212, 63, 9);
 }
 .brand-btn:hover{
         transform: scale(1.1);
