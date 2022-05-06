@@ -1,14 +1,35 @@
 import React from 'react';
 import './AddItem.css';
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from 'react-toastify';
 
 const AddItem = () => {
-        const { register, handleSubmit } = useForm();
+        // React Hook Form for Catch Item Data:
+        const { register, handleSubmit, reset } = useForm();
         const onSubmit = data => {
                 console.log(data)
+                const url = 'http://localhost:5000/items';
+                fetch(url, {
+                        method: 'POST',
+                        headers: {
+                                "content-type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                })
+                        .then(res => res.json())
+                        .then(result => {
+                                if (result.insertedId) {
+                                        toast("Successfully Added New Item");
+                                        reset();
+                                }
+                                else {
+                                        toast("Something Went Wrong! Please Try Again!");
+                                }
+                        })
         };
         return (
                 <div className="container mt-5 pb-5">
+                        <ToastContainer></ToastContainer>
                         <div className="form">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                         <div class="mb-3">
