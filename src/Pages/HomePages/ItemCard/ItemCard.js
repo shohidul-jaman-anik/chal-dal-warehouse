@@ -18,7 +18,7 @@ const ItemCard = ({ item }) => {
                                 </div>
                                 <div className="card-body">
                                         <h4 className="card-title fw-bold">{name}</h4>
-                                        <p className="card-text mt-3">{description}</p>
+                                        <p className="card-text mt-3">{description.slice(0, 100)}</p>
                                 </div>
                                 <div className="d-flex justify-content-between align-items-center ps-3 pe-3 pt-3 pb-3">
                                         <div>
