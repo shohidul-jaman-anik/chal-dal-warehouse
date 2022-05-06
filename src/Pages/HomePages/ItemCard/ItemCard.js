@@ -11,16 +11,16 @@ const ItemCard = ({ item }) => {
                 navigate(`/inventory/${id}`);
         }
         return (
-                <div class="col p-3">
-                        <div class="item-detail h-100">
-                                <div class="item-img p-3">
-                                        <img src={img} class="img-fluid w-100 rounded-3" alt="..." />
+                <div className="col p-3">
+                        <div className="item-detail h-100">
+                                <div className="item-img p-3">
+                                        <img src={img} className="img-fluid w-100 rounded-3" alt="..." />
                                 </div>
-                                <div class="card-body">
-                                        <h4 class="card-title fw-bold">{name}</h4>
-                                        <p class="card-text mt-3">{description}</p>
+                                <div className="card-body">
+                                        <h4 className="card-title fw-bold">{name}</h4>
+                                        <p className="card-text mt-3">{description}</p>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center ps-3 pe-3 pt-3 pb-3">
+                                <div className="d-flex justify-content-between align-items-center ps-3 pe-3 pt-3 pb-3">
                                         <div>
                                                 <h6><small>Quantity: {quantity} kg</small> </h6>
                                                 <h2 className="brand-color">{price}৳</h2>
