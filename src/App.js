@@ -7,6 +7,7 @@ import Navbar from './Pages/SharedPages/Navbar/Navbar';
 import 'react-toastify/dist/ReactToastify.css';
 import Registration from './Pages/Authentication/Registration/Registration';
 import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
+import AddItem from './Pages/Management/AddItem/AddItem';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
           <PrivateRoute>
             <Inventory></Inventory>
           </PrivateRoute>}>
+        </Route>
+        <Route path="add-item" element={<PrivateRoute>
+          <AddItem></AddItem>
+        </PrivateRoute>}>
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registration" element={<Registration></Registration>}></Route>

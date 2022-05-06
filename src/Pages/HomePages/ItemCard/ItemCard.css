@@ -1,5 +1,7 @@
 .item-img{
         height: 280px;
+        width: 350px;
+        margin: 0 auto;
 }
 .item-img img{
         height: 100%;
