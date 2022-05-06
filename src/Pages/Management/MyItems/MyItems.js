@@ -1,17 +1,22 @@
-import React from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../../Hooks/firebase.init';
 import LoadItems from '../../../Hooks/LoadItems';
-import './ManageInventory.css';
-import stockImg from '../../images/stock.png';
-import { useNavigate } from 'react-router-dom';
+import './MyItems.css';
 
-const ManageInventory = () => {
-        const [items, setItems] = LoadItems();
+const MyItems = () => {
+        const [items, setItems] = useState([]);
+        const [user] = useAuthState(auth);
 
-        const navigate = useNavigate();
-        const navigateToAddNewItemPage = () => {
-                navigate('/add-item')
-        }
+        useEffect(() => {
+                fetch('http://localhost:5000/items')
+                        .then(res => res.json())
+                        .then(data => {
+                                const myItems = data?.filter(item => item.email === user.email);
+                                setItems(myItems);
+                        })
+        }, [items])
 
         // Handle Delete Item:
         const handleDeleteItem = deleteItem => {
@@ -24,8 +29,8 @@ const ManageInventory = () => {
                                 .then(res => res.json())
                                 .then(data => {
                                         if (data.deletedCount > 0) {
-                                                const updateItems = items?.filter(item => item._id !== deleteItem._id)
-                                                setItems(updateItems)
+                                                const myItem = items?.filter(item => item.email === user.email);
+                                                setItems(myItem)
                                                 toast(`Successfully Delete ${deleteItem.name}`);
                                         }
                                         else {
@@ -35,24 +40,8 @@ const ManageInventory = () => {
                 }
         }
         return (
-                <div className="mt-5 container">
-                        <div className="">
-                                <div className="text-center">
-                                        <div className="add-item-section">
-                                                <h3 className="brand-color fw-bold">Add New Item</h3>
-                                                <div className="d-flex align-items-center justify-content-between">
-                                                        <div>
-                                                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Green_arrow_right.svg/320px-Green_arrow_right.svg.png" className="img-fluid" height="60" width="60" alt="" />
-                                                        </div>
-
-                                                        <div className="d-grid gap-2 mt-2">
-                                                                <button onClick={() => navigateToAddNewItemPage()} type="submit" className="btn login-btn">Add New Item</button>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                        <h3 className="brand-color text-center pb-5 mt-5 fw-bold text-decoration-underline">Manage Your All Items</h3>
+                <div className="container">
+                        <h3 className="brand-color text-center pb-5 mt-5 fw-bold text-decoration-underline">My Items</h3>
                         <table className="table">
                                 <thead>
                                         <tr className="text-center">
@@ -85,9 +74,8 @@ const ManageInventory = () => {
                                         }
                                 </tbody>
                         </table>
-                        <ToastContainer></ToastContainer>
                 </div>
         );
 };
 
-export default ManageInventory;
+export default MyItems;

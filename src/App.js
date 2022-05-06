@@ -9,6 +9,7 @@ import Registration from './Pages/Authentication/Registration/Registration';
 import PrivateRoute from './Pages/Authentication/PrivateRoute/PrivateRoute';
 import AddItem from './Pages/Management/AddItem/AddItem';
 import ManageInventory from './Pages/Management/ManageInventory/ManageInventory';
+import MyItems from './Pages/Management/MyItems/MyItems';
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
         </Route>
         <Route path="manage-inventories" element={<PrivateRoute>
           <ManageInventory></ManageInventory>
+        </PrivateRoute>}>
+        </Route>
+        <Route path="my-items" element={<PrivateRoute>
+          <MyItems></MyItems>
         </PrivateRoute>}>
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>

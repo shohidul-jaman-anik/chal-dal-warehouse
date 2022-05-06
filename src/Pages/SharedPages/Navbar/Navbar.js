@@ -27,8 +27,30 @@ const Navbar = () => {
                                                         <li className="nav-item">
                                                                 <Link to="/" className="nav-link active fs-5" aria-current="page" href="#">Home</Link>
                                                         </li>
+
                                                         <li className="nav-item">
-                                                                <Link to="/manage-inventories" className="nav-link active fs-5">Manage Inventories</Link>
+                                                                {
+                                                                        user?.email ?
+                                                                                <Link to="/manage-inventories" className="nav-link active fs-5">Manage Items</Link>
+                                                                                :
+                                                                                ''
+                                                                }
+                                                        </li>
+                                                        <li className="nav-item">
+                                                                {
+                                                                        user?.email ?
+                                                                                <Link to="/add-item" className="nav-link active fs-5">Add Item</Link>
+                                                                                :
+                                                                                ''
+                                                                }
+                                                        </li>
+                                                        <li className="nav-item">
+                                                                {
+                                                                        user?.email ?
+                                                                                <Link to="/my-items" className="nav-link active fs-5">My-Items</Link>
+                                                                                :
+                                                                                ''
+                                                                }
                                                         </li>
                                                         <li className="nav-item">
                                                                 {

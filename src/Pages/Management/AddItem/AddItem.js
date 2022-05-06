@@ -2,11 +2,15 @@ import React from 'react';
 import './AddItem.css';
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../Hooks/firebase.init';
 
 const AddItem = () => {
+        const [user] = useAuthState(auth);
         // React Hook Form for Catch Item Data:
         const { register, handleSubmit, reset } = useForm();
         const onSubmit = data => {
+                console.log(data)
                 const url = 'http://localhost:5000/items';
                 fetch(url, {
                         method: 'POST',
@@ -17,6 +21,7 @@ const AddItem = () => {
                 })
                         .then(res => res.json())
                         .then(result => {
+                                console.log(result);
                                 if (result.insertedId) {
                                         toast("Successfully Added New Item");
                                         // reset();
@@ -31,6 +36,10 @@ const AddItem = () => {
                         <ToastContainer></ToastContainer>
                         <div className="form">
                                 <form onSubmit={handleSubmit(onSubmit)}>
+                                        <div className="mb-3">
+                                                <h6 className="form-label">Your Email</h6>
+                                                <input type="email" className="form-control" {...register("email", { required: true })} defaultValue={user.email} readOnly={true} />
+                                        </div>
                                         <div className="mb-3">
                                                 <h6 className="form-label">Item Name</h6>
                                                 <input type="text" className="form-control" {...register("name", { required: true })} autoComplete="off" placeholder="Item Name" />
