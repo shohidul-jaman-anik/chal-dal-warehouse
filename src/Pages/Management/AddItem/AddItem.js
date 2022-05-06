@@ -7,7 +7,6 @@ const AddItem = () => {
         // React Hook Form for Catch Item Data:
         const { register, handleSubmit, reset } = useForm();
         const onSubmit = data => {
-                console.log(data)
                 const url = 'http://localhost:5000/items';
                 fetch(url, {
                         method: 'POST',
@@ -20,7 +19,7 @@ const AddItem = () => {
                         .then(result => {
                                 if (result.insertedId) {
                                         toast("Successfully Added New Item");
-                                        reset();
+                                        // reset();
                                 }
                                 else {
                                         toast("Something Went Wrong! Please Try Again!");
