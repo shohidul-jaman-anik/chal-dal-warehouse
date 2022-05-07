@@ -10,7 +10,7 @@ const MyItems = () => {
         const [user] = useAuthState(auth);
 
         useEffect(() => {
-                fetch('http://localhost:5000/items')
+                fetch('https://chaldal-warehouse.herokuapp.com/items')
                         .then(res => res.json())
                         .then(data => {
                                 const myItems = data?.filter(item => item.email === user.email);
@@ -22,7 +22,7 @@ const MyItems = () => {
         const handleDeleteItem = deleteItem => {
                 const sure = window.confirm(`Are you sure to delete ${deleteItem.name} ?`);
                 if (sure) {
-                        const url = `http://localhost:5000/items/${deleteItem._id}`;
+                        const url = `https://chaldal-warehouse.herokuapp.com/items/${deleteItem._id}`;
                         fetch(url, {
                                 method: 'DELETE',
                         })

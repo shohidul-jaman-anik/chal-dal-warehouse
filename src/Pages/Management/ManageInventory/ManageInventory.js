@@ -17,7 +17,7 @@ const ManageInventory = () => {
         const handleDeleteItem = deleteItem => {
                 const sure = window.confirm(`Are you sure to delete ${deleteItem.name} ?`);
                 if (sure) {
-                        const url = `http://localhost:5000/items/${deleteItem._id}`;
+                        const url = `https://chaldal-warehouse.herokuapp.com/items/${deleteItem._id}`;
                         fetch(url, {
                                 method: 'DELETE',
                         })

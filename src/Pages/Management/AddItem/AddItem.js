@@ -11,7 +11,7 @@ const AddItem = () => {
         const { register, handleSubmit, reset } = useForm();
         const onSubmit = data => {
                 console.log(data)
-                const url = 'http://localhost:5000/items';
+                const url = 'https://chaldal-warehouse.herokuapp.com/items';
                 fetch(url, {
                         method: 'POST',
                         headers: {

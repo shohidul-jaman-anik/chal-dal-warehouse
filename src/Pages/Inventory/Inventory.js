@@ -9,7 +9,7 @@ const Inventory = () => {
         // Load Data:
         const [item, setItem] = useState({});
         useEffect(() => {
-                fetch(`http://localhost:5000/item/${id}`)
+                fetch(`https://chaldal-warehouse.herokuapp.com/item/${id}`)
                         .then(res => res.json())
                         .then(data => setItem(data))
         }, [item])
@@ -21,7 +21,7 @@ const Inventory = () => {
                 const quantity = item?.quantity + data?.stockQuantity;
                 const sold = item?.sold;
                 const updateData = { quantity, sold };
-                fetch(`http://localhost:5000/item/${id}`, {
+                fetch(`https://chaldal-warehouse.herokuapp.com/item/${id}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(updateData)
@@ -41,7 +41,7 @@ const Inventory = () => {
                 const quantity = item?.quantity - 1;
                 const sold = item?.sold + 1;
                 const updateData = { quantity, sold };
-                fetch(`http://localhost:5000/item/${id}`, {
+                fetch(`https://chaldal-warehouse.herokuapp.com/item/${id}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(updateData)
