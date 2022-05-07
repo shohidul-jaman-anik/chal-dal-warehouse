@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../Hooks/firebase.init';
@@ -18,15 +19,31 @@ const Login = () => {
         // Using Hooks Sign In With Google:
         const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
+        // Using Google Sign In:
+        const [user1] = useAuthState(auth);
+        const usingGoogle = async () => {
+                await signInWithGoogle();
+        }
+        if (user1) {
+                const sendUserInformation = async () => {
+                        const email = user1?.email;
+                        const data = await axios.post('http://localhost:5000/get-token', { email });
+                        localStorage.setItem('token', data?.data);
+                }
+                sendUserInformation();
+        }
+
         // UseRef
         const emailRef = useRef('');
         const passwordRef = useRef('');
 
-        const handleLogin = e => {
+        const handleLogin = async e => {
                 e.preventDefault();
                 const email = emailRef.current.value;
                 const password = passwordRef.current.value;
-                signInWithEmailAndPassword(email, password);
+                await signInWithEmailAndPassword(email, password);
+                const data = await axios.post('http://localhost:5000/get-token', { email });
+                localStorage.setItem('token', data?.data);
         }
 
         // Reset Password:
@@ -100,7 +117,7 @@ const Login = () => {
                                         </form>
 
                                         <div className="d-grid gap-2 w-75 mt-3 mx-auto">
-                                                <button onClick={() => signInWithGoogle()} className="btn login-btn btn-lg fw-bold login-btn">
+                                                <button onClick={() => usingGoogle()} className="btn login-btn btn-lg fw-bold login-btn">
                                                         <img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/google_icon_130924.png" className="img-fluid rounded-circle me-3" width="32" alt="" /> Sign In Using Google
                                                 </button>
                                         </div>

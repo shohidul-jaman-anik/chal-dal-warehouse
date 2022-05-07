@@ -1,22 +1,54 @@
+import axios from 'axios';
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../Hooks/firebase.init';
-import LoadItems from '../../../Hooks/LoadItems';
 import './MyItems.css';
 
 const MyItems = () => {
         const [items, setItems] = useState([]);
         const [user] = useAuthState(auth);
+        const navigate = useNavigate();
 
         useEffect(() => {
-                fetch('https://chaldal-warehouse.herokuapp.com/items')
-                        .then(res => res.json())
-                        .then(data => {
-                                const myItems = data?.filter(item => item.email === user.email);
-                                setItems(myItems);
-                        })
-        }, [items])
+                // fetch(`http://localhost:5000/my-items?email=${user?.email}`, {
+                //         headers: {
+                //                 authorization: `Bearer ${localStorage.getItem('token')}`
+                //         }
+                // })
+                //         .then(res => res.json())
+                //         .then(data => {
+                //                 setItems(data);
+                //         })
+                //         .catch(err => {
+                //                 console.log(err)
+                //                 if (err.response.status === 401 || err.response.status === 403) {
+                //                         navigate('login');
+                //                         signOut(auth);
+                //                 }
+                //         });
+                const loadMyItems = async () => {
+                        const url = `http://localhost:5000/my-items?email=${user?.email}`;
+                        try {
+                                const { data } = await axios.get(url, {
+                                        headers: {
+                                                authorization: `Bearer ${localStorage.getItem('token')}`
+                                        }
+                                });
+                                setItems(data);
+                        }
+                        catch (error) {
+                                console.log(error);
+                                if (error.response.status === 401 || error.response.status === 403) {
+                                        navigate('/login');
+                                        signOut(auth);
+                                }
+                        }
+                }
+                loadMyItems();
+        }, [user]);
 
         // Handle Delete Item:
         const handleDeleteItem = deleteItem => {
@@ -55,7 +87,7 @@ const MyItems = () => {
                                 <tbody>
                                         {
 
-                                                items?.map(item => <tr
+                                                items?.map ? items?.map(item => <tr
                                                         id="t-border"
                                                         className="brand-bg"
                                                         item={item}
@@ -66,11 +98,13 @@ const MyItems = () => {
                                                         <td>{item.quantity}kg</td>
                                                         <td>{item.sold}kg</td>
                                                         <td>
-                                                                <button onClick={() => handleDeleteItem(item)} type="button" className="btn btn-danger">Delte Item</button>
+                                                                <button onClick={() => handleDeleteItem(item)} type="button" className="btn btn-danger">Delete Item</button>
 
                                                         </td>
 
                                                 </tr>)
+                                                        :
+                                                        ''
                                         }
                                 </tbody>
                         </table>

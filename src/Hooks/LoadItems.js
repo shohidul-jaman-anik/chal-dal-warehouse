@@ -4,7 +4,7 @@ const LoadItems = () => {
         const [items, setItems] = useState([]);
         // Load Items By UseEffect:
         useEffect(() => {
-                fetch('https://chaldal-warehouse.herokuapp.com/items')
+                fetch('http://localhost:5000/items')
                         .then(res => res.json())
                         .then(data => setItems(data));
         }, [])

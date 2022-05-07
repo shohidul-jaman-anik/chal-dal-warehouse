@@ -6,8 +6,8 @@ import './Items.css';
 const Items = () => {
         const [items] = LoadItems();
         return (
-                <div>
-                        <h3 className="text-center mt-5">Our Items</h3>
+                <div className="pb-5">
+                        <h1 className="w-25 brand-bg mx-auto text-center mt-5 brand-color fw-bold text-decoration-underline"> <marquee>Our Items</marquee></h1>
                         <div className="container pt-5 pb-5">
                                 <div className="row row-cols-1 row-cols-md-3 g-4">
                                         {

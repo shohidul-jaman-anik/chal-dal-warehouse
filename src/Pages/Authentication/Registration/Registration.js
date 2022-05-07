@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../Hooks/firebase.init';
 import grocery from '../../images/grocery-img.png';
@@ -18,6 +19,20 @@ const Registration = () => {
         // Update Profile for Name:
         const [updateProfile, updating, nameError] = useUpdateProfile(auth);
 
+        // Using Google Sign In:
+        const [user1] = useAuthState(auth);
+        const usingGoogle = async () => {
+                await signInWithGoogle();
+        }
+        if (user1) {
+                const sendUserInformation = async () => {
+                        const email = user1?.email;
+                        const data = await axios.post('http://localhost:5000/get-token', { email });
+                        localStorage.setItem('token', data?.data);
+                }
+                sendUserInformation();
+        }
+
         // UseRef
         const nameRef = useRef('')
         const emailRef = useRef('');
@@ -30,6 +45,9 @@ const Registration = () => {
                 const password = passwordRef.current.value;
                 await createUserWithEmailAndPassword(email, password);
                 await updateProfile({ displayName: name });
+                const data = await axios.post('http://localhost:5000/get-token', { email });
+                console.log(data)
+                localStorage.setItem('token', data?.data)
         }
         const navigate = useNavigate();
         useEffect(() => {
@@ -90,7 +108,7 @@ const Registration = () => {
                                         </form>
 
                                         <div className="d-grid gap-2 w-75 mt-3 mx-auto">
-                                                <button onClick={() => signInWithGoogle()} className="btn login-btn btn-lg fw-bold login-btn text-white">
+                                                <button onClick={() => usingGoogle()} className="btn login-btn btn-lg fw-bold login-btn text-white">
                                                         <img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/google_icon_130924.png" className="img-fluid rounded-circle me-3" width="32" alt="" /> Sign In Using Google
                                                 </button>
                                         </div>
