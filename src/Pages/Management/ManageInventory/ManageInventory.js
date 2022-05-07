@@ -35,7 +35,7 @@ const ManageInventory = () => {
                 }
         }
         return (
-                <div className="mt-5 container">
+                <div className="mt-5 container pb-5 mb-5">
                         <div className="">
                                 <div className="text-center">
                                         <div className="add-item-section">
@@ -52,7 +52,7 @@ const ManageInventory = () => {
                                         </div>
                                 </div>
                         </div>
-                        <h3 className="brand-color text-center pb-5 mt-5 fw-bold text-decoration-underline">Manage Your All Items</h3>
+                        <h3 className="brand-color text-center pb-5 fw-bold text-decoration-underline">Manage Your All Items</h3>
                         <table className="table">
                                 <thead>
                                         <tr className="text-center">

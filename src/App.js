@@ -11,6 +11,7 @@ import AddItem from './Pages/Management/AddItem/AddItem';
 import ManageInventory from './Pages/Management/ManageInventory/ManageInventory';
 import MyItems from './Pages/Management/MyItems/MyItems';
 import NotFound from './Pages/NotFound/NotFound';
+import Footer from './Pages/SharedPages/Footer/Footer';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

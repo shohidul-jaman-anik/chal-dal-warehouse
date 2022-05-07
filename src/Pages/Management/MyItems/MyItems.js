@@ -40,7 +40,7 @@ const MyItems = () => {
                 }
         }
         return (
-                <div className="container">
+                <div className="container pb-5 mb-5">
                         <h3 className="brand-color text-center pb-5 mt-5 fw-bold text-decoration-underline">My Items</h3>
                         <table className="table">
                                 <thead>

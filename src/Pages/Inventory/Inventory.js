@@ -72,7 +72,7 @@ const Inventory = () => {
                                                                         <h6><small>Already {sold} kg sold ✅</small> </h6>
                                                                 </div>
                                                                 <div>
-                                                                        <h2 className="brand-color">{price}৳</h2>
+                                                                        <h2 className="brand-color">{price}৳/kg</h2>
                                                                 </div>
                                                         </div>
                                                         <div className="p-3">
