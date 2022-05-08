@@ -4,8 +4,9 @@ import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword,
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../Hooks/firebase.init';
-import grocery from '../../images/grocery-img.png';
+import grocery from '../../images/login.png';
 import './Login.css';
+import spinner from '../../images/spinner.gif';
 
 const Login = () => {
         // Using Hook Login:
@@ -27,7 +28,7 @@ const Login = () => {
         if (user1) {
                 const sendUserInformation = async () => {
                         const email = user1?.email;
-                        const data = await axios.post('http://localhost:5000/get-token', { email });
+                        const data = await axios.post('https://chaldal-warehouse.herokuapp.com/get-token', { email });
                         localStorage.setItem('token', data?.data);
                 }
                 sendUserInformation();
@@ -42,7 +43,7 @@ const Login = () => {
                 const email = emailRef.current.value;
                 const password = passwordRef.current.value;
                 await signInWithEmailAndPassword(email, password);
-                const data = await axios.post('http://localhost:5000/get-token', { email });
+                const data = await axios.post('https://chaldal-warehouse.herokuapp.com/get-token', { email });
                 localStorage.setItem('token', data?.data);
         }
 
@@ -79,7 +80,7 @@ const Login = () => {
         // Spinner:
         if (loading || googleLoading || sending) {
                 return <div className="loading d-flex justify-content-center align-items-center">
-                        <img className="img-fluid w-25 mt-5" src="https://i.gifer.com/7gPN.gif" alt="" />
+                        <img className="img-fluid mt-5" src={spinner} alt="" />
                 </div>
         }
         return (

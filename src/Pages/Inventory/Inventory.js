@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import stockImg from '../images/stock.png';
+import spinner from '../images/spinner.gif';
 
 const Inventory = () => {
         const { id } = useParams();
@@ -52,6 +53,12 @@ const Inventory = () => {
                                         toast("Yahoo😍 !Successfully Delivered item✅!")
                                 }
                         })
+        }
+
+        if (!item) {
+                return <div className="loading d-flex justify-content-center align-items-center">
+                        <img className="img-fluid mt-5" src={spinner} alt="" />
+                </div>
         }
         return (
                 <div className="container mt-5 pb-5">

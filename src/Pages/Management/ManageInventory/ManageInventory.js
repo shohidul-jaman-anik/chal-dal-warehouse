@@ -2,8 +2,8 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import LoadItems from '../../../Hooks/LoadItems';
 import './ManageInventory.css';
-import stockImg from '../../images/stock.png';
 import { useNavigate } from 'react-router-dom';
+import spinner from '../../images/spinner.gif';
 
 const ManageInventory = () => {
         const [items, setItems] = LoadItems();
@@ -33,6 +33,11 @@ const ManageInventory = () => {
                                         }
                                 })
                 }
+        }
+        if (!items.length) {
+                return <div className="loading d-flex justify-content-center align-items-center">
+                        <img className="img-fluid mt-5" src={spinner} alt="" />
+                </div>
         }
         return (
                 <div className="mt-5 container pb-5 mb-5">

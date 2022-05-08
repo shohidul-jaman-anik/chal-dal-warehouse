@@ -3,7 +3,8 @@ import React, { useEffect, useRef } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../Hooks/firebase.init';
-import grocery from '../../images/grocery-img.png';
+import grocery from '../../images/registration.png';
+import spinner from '../../images/spinner.gif';
 
 const Registration = () => {
         // Using React hooks Registration:
@@ -27,7 +28,7 @@ const Registration = () => {
         if (user1) {
                 const sendUserInformation = async () => {
                         const email = user1?.email;
-                        const data = await axios.post('http://localhost:5000/get-token', { email });
+                        const data = await axios.post('https://chaldal-warehouse.herokuapp.com/get-token', { email });
                         localStorage.setItem('token', data?.data);
                 }
                 sendUserInformation();
@@ -45,8 +46,7 @@ const Registration = () => {
                 const password = passwordRef.current.value;
                 await createUserWithEmailAndPassword(email, password);
                 await updateProfile({ displayName: name });
-                const data = await axios.post('http://localhost:5000/get-token', { email });
-                console.log(data)
+                const data = await axios.post('https://chaldal-warehouse.herokuapp.com/get-token', { email });
                 localStorage.setItem('token', data?.data)
         }
         const navigate = useNavigate();
@@ -65,7 +65,7 @@ const Registration = () => {
         // Spinner:
         if (loading || googleLoading) {
                 return <div className="loading d-flex justify-content-center align-items-center">
-                        <img className="img-fluid w-25 mt-5" src="https://i.gifer.com/7gPN.gif" alt="" />
+                        <img className="img-fluid mt-5" src={spinner} alt="" />
                 </div>
         }
         return (

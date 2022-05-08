@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../Hooks/firebase.init';
 import './MyItems.css';
+import spinner from '../../images/spinner.gif';
 
 const MyItems = () => {
         const [items, setItems] = useState([]);
@@ -13,24 +14,8 @@ const MyItems = () => {
         const navigate = useNavigate();
 
         useEffect(() => {
-                // fetch(`http://localhost:5000/my-items?email=${user?.email}`, {
-                //         headers: {
-                //                 authorization: `Bearer ${localStorage.getItem('token')}`
-                //         }
-                // })
-                //         .then(res => res.json())
-                //         .then(data => {
-                //                 setItems(data);
-                //         })
-                //         .catch(err => {
-                //                 console.log(err)
-                //                 if (err.response.status === 401 || err.response.status === 403) {
-                //                         navigate('login');
-                //                         signOut(auth);
-                //                 }
-                //         });
                 const loadMyItems = async () => {
-                        const url = `http://localhost:5000/my-items?email=${user?.email}`;
+                        const url = `https://chaldal-warehouse.herokuapp.com/my-items?email=${user?.email}`;
                         try {
                                 const { data } = await axios.get(url, {
                                         headers: {
@@ -60,9 +45,9 @@ const MyItems = () => {
                         })
                                 .then(res => res.json())
                                 .then(data => {
-                                        if (data.deletedCount > 0) {
-                                                const myItem = items?.filter(item => item.email === user.email);
-                                                setItems(myItem)
+                                        if (data?.deletedCount > 0) {
+                                                const updateItems = items?.filter(item => item._id !== deleteItem._id)
+                                                setItems(updateItems)
                                                 toast(`Successfully Delete ${deleteItem.name}`);
                                         }
                                         else {
@@ -70,6 +55,15 @@ const MyItems = () => {
                                         }
                                 })
                 }
+        }
+
+        if (items.length === 0) {
+                return <div className="mt-5 pt-5  pb-5 mb-5 loading d-flex justify-content-center align-items-center">
+                        <div>
+                                <h3 className="brand-color">You have no item</h3>
+                                <h3>Please add any item!</h3>
+                        </div>
+                </div>
         }
         return (
                 <div className="container pb-5 mb-5">
