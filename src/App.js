@@ -12,6 +12,7 @@ import ManageInventory from './Pages/Management/ManageInventory/ManageInventory'
 import MyItems from './Pages/Management/MyItems/MyItems';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/SharedPages/Footer/Footer';
+import All_Items from './Pages/All-Items/All-Items';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="/all-items" element={<All_Items></All_Items>}></Route>
         <Route path="/inventory/:id" element={
           <PrivateRoute>
             <Inventory></Inventory>

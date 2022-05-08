@@ -49,6 +49,15 @@ const AddItem = () => {
                                                                 <input type="text" className="form-control" {...register("name", { required: true })} autoComplete="off" placeholder="Item Name" />
                                                         </div>
                                                         <div className="mb-3">
+                                                                <h6 className="form-label">Item Category</h6>
+                                                                <select class="form-select" id="inputGroupSelect01"
+                                                                        {...register("category", { required: true })}>
+                                                                        <option value="regular">Regular</option>
+                                                                        <option value="fruits">Fruits</option>
+                                                                        <option value="drinks">Drinks</option>
+                                                                </select>
+                                                        </div>
+                                                        <div className="mb-3">
                                                                 <h6 className="form-label">Item Price</h6>
                                                                 <input type="number" className="form-control" {...register("price", { required: true, valueAsNumber: true })} autoComplete="off" placeholder="Item Price" />
                                                         </div>
