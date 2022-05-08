@@ -5,6 +5,7 @@ import facebook from '../../images/facebook.png';
 import twt from '../../images/twt.png';
 import youtube from '../../images/youtube.png';
 import card from '../../images/card.png';
+import logo from '../../images/chaldal-logo.png';
 
 const Footer = () => {
         // Handle switch to Home:
@@ -19,10 +20,18 @@ const Footer = () => {
                                 <div className="container pb-5">
                                         <div className="row d-flex justify-content-between align-items-center brand-light-color">
                                                 <div className="col-lg-5 mt-5">
-
                                                         <div className="d-flex align-items-center site-name">
-                                                                <img className="img-fluid" height="45" width="45" src="" alt="" />
-                                                                <h2 onClick={switchedToHome} className="text-white  mt-2"><span className="ps-1 pt-5">Chaldal Warehouse</span></h2>
+                                                                <div onClick={switchedToHome} className="navbar-brand logo ms-3">
+                                                                        <div className="d-flex align-items-center justify-content-center">
+                                                                                <div>
+                                                                                        <img className="img-fluid" height="45" width="45" alt="logo" src={logo} />
+                                                                                        <h6 className="fst-italic">Chaldal</h6>
+                                                                                </div>
+                                                                                <div>
+                                                                                        <h4 className="fst-italic brand-color">Warehouse</h4>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
                                                         </div>
 
                                                         <h6 className="mt-3 ps-3"><i className="fas fa-map-marker-alt"> </i> Level-4, 34, Maskanda

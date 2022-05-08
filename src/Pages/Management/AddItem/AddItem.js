@@ -35,11 +35,11 @@ const AddItem = () => {
         return (
                 <div className="container mt-5 pb-5 pt-5 mb-5">
                         <ToastContainer></ToastContainer>
-                        <h1 className="w-25 brand-bg mx-auto text-center mt-5 brand-color fw-bold text-decoration-underline"> <marquee>Add New Items</marquee></h1>
+                        <h1 className="w-25 brand-bg mx-auto text-center brand-color fw-bold text-decoration-underline"> <marquee>Add New Items</marquee></h1>
                         <div className="row mt-5 pt-3">
                                 <div className="col-md-6">
                                         <div className="form">
-                                                <form onSubmit={handleSubmit(onSubmit)}>
+                                                <form className="p-3" onSubmit={handleSubmit(onSubmit)}>
                                                         <div className="mb-3">
                                                                 <h6 className="form-label">Your Email</h6>
                                                                 <input type="email" className="form-control" {...register("email", { required: true })} defaultValue={user.email} readOnly={true} />

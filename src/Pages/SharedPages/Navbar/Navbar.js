@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import auth from '../../../Hooks/firebase.init';
 import './Navbar.css';
 import defaultUser from '../../images/defaultUser.png';
+import logo from '../../images/chaldal-logo.png';
 
 const Navbar = () => {
         const [user] = useAuthState(auth);
@@ -18,7 +19,17 @@ const Navbar = () => {
                 <div className="pb-5">
                         <nav id="nav" className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                                 <div className="container">
-                                        <a className="navbar-brand" href="#">Navbar</a>
+                                        <Link to="/" className="navbar-brand">
+                                                <div className="d-flex align-items-center justify-content-center">
+                                                        <div>
+                                                                <img className="img-fluid" height="45" width="45" alt="logo" src={logo} />
+                                                                <h6 className="fst-italic">Chaldal</h6>
+                                                        </div>
+                                                        <div>
+                                                                <h4 className="fst-italic brand-color">Warehouse</h4>
+                                                        </div>
+                                                </div>
+                                        </Link>
                                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                                 <span className="navbar-toggler-icon"></span>
                                         </button>

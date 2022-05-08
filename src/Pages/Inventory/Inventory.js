@@ -61,7 +61,7 @@ const Inventory = () => {
                 </div>
         }
         return (
-                <div className="container mt-5 pb-5">
+                <div className="container mt-5 pb-5 pt-5 mb-5">
                         <div className="row">
                                 <div className="col-md-4">
                                         <div className="col p-3">
@@ -76,10 +76,12 @@ const Inventory = () => {
                                                         <div className="d-flex justify-content-between align-items-center ps-4 pe-5 pt-3 pb-3">
                                                                 <div>
                                                                         <h6><small>Quantity: {quantity} kg</small> </h6>
-                                                                        <h6><small>Already {sold} kg sold ✅</small> </h6>
+                                                                        <h6><small>Supplier: {supplier}</small> </h6>
+
                                                                 </div>
                                                                 <div>
                                                                         <h2 className="brand-color">{price}৳/kg</h2>
+                                                                        <h6 className="brand-color"><small>Already {sold} kg sold ✅</small> </h6>
                                                                 </div>
                                                         </div>
                                                         <div className="p-3">
@@ -93,8 +95,8 @@ const Inventory = () => {
 
                                 <div className="col-md-8 d-flex justify-content-center align-items-center">
                                         <div className="text-center mx-auto">
-                                                <h3 className="brand-color fw-bold">Stock Your Item</h3>
-                                                <div className="form d-flex justify-content-between align-items-center">
+                                                <h1 className="mx-auto text-center brand-color fw-bold text-decoration-underline w-50"> <marquee>Stock Your Item</marquee></h1>
+                                                <div className="form w-50 d-flex justify-content-between align-items-center">
                                                         <div>
                                                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Green_arrow_right.svg/320px-Green_arrow_right.svg.png" className="img-fluid" height="60" width="60" alt="" />
                                                         </div>

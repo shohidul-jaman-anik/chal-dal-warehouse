@@ -58,7 +58,7 @@ const MyItems = () => {
         }
 
         if (items.length === 0) {
-                return <div className="mt-5 pt-5  pb-5 mb-5 loading d-flex justify-content-center align-items-center">
+                return <div className="mt-5 pt-5 pb-5 mb-5 loading d-flex justify-content-center align-items-center">
                         <div>
                                 <h3 className="brand-color">You have no item</h3>
                                 <h3>Please add any item!</h3>
@@ -67,7 +67,7 @@ const MyItems = () => {
         }
         return (
                 <div className="container pb-5 mb-5">
-                        <h3 className="brand-color text-center pb-5 mt-5 fw-bold text-decoration-underline">My Items</h3>
+                        <h3 className="brand-color text-center pb-5 mt-5 pt-5 fw-bold text-decoration-underline">My Items</h3>
                         <table className="table">
                                 <thead>
                                         <tr className="text-center">

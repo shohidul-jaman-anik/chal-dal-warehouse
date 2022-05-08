@@ -40,11 +40,11 @@ const ManageInventory = () => {
                 </div>
         }
         return (
-                <div className="mt-5 container pb-5 mb-5">
+                <div className="container mt-5 pt-5 pb-5 mb-5">
                         <div className="">
                                 <div className="text-center">
                                         <div className="add-item-section">
-                                                <h3 className="brand-color fw-bold">Add New Item</h3>
+                                                <h1 className="brand-bg mx-auto text-center brand-color fw-bold text-decoration-underline"> <marquee>Add New Items</marquee></h1>
                                                 <div className="d-flex align-items-center justify-content-between">
                                                         <div>
                                                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Green_arrow_right.svg/320px-Green_arrow_right.svg.png" className="img-fluid" height="60" width="60" alt="" />

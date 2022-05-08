@@ -3,11 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import './ItemCard.css';
 
 const ItemCard = ({ item }) => {
-        const { name, price, img, quantity, description, _id, sold } = item;
+        const { name, price, img, quantity, description, _id, sold, supplier } = item;
 
         // Manage Item to Inventory Page:
         const navigate = useNavigate();
         const manageItem = (id) => {
+                window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'smooth'
+                });
                 navigate(`/inventory/${id}`);
         }
         return (
@@ -24,12 +29,12 @@ const ItemCard = ({ item }) => {
                                         <div className="d-flex justify-content-between align-items-center ps-3 pe-3 pt-3 pb-3">
                                                 <div>
                                                         <h6><small>Quantity: {quantity}kg</small> </h6>
-
+                                                        <h6><small>Supplier: {supplier}</small> </h6>
                                                         <h2 className="brand-color">{price}৳/kg</h2>
                                                 </div>
                                                 <div>
 
-                                                        <h6 className="text-end brand-color fw-bold pb-3"><small>Already Sold {sold}kg</small> </h6>
+                                                        <h6 className="text-end brand-color fw-bold pb-1"><small>Already Sold {sold}kg</small> </h6>
                                                         <button onClick={() => manageItem(_id)} className="btn brand-btn">
                                                                 Manage Item
                                                         </button>
