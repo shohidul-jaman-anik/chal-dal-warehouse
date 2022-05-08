@@ -4,7 +4,7 @@ import banner1 from '../../images/b-1.png'
 import banner2 from '../../images/banner2.png'
 import banner3 from '../../images/banner3.png'
 import Slider from 'react-slick/lib/slider';
-import Typical from 'react-typical'
+import Typical from 'react-typical';
 
 
 const Banner = () => {

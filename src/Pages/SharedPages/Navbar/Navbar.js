@@ -67,6 +67,9 @@ const Navbar = () => {
                                                                 }
                                                         </li>
                                                         <li className="nav-item">
+                                                                <Link to="/blog" className="nav-link active fs-5" aria-current="page">Blog</Link>
+                                                        </li>
+                                                        <li className="nav-item">
                                                                 {
                                                                         user?.email ?
                                                                                 <img src={user?.photoURL ? user?.photoURL : defaultUser} className="img-fluid rounded-circle me-3 border border-dark border-3" width="50" alt="" />

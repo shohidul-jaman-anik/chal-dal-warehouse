@@ -10,7 +10,7 @@ const All_Items = () => {
         useEffect(() => {
                 const item = items?.filter(item => item?.category === 'regular');
                 setData(item);
-        }, [items])
+        }, [items]);
 
         const handleCategory = category => {
                 const item = items?.filter(item => item.category === category);
