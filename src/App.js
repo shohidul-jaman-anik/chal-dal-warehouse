@@ -22,7 +22,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/all-items" element={<All_Items></All_Items>}></Route>
+        <Route path="/all-items" element={
+          <PrivateRoute>
+            <All_Items></All_Items>
+          </PrivateRoute>
+        }></Route>
         <Route path="/blog" element={<Blogs></Blogs>}></Route>
         <Route path="/inventory/:id" element={
           <PrivateRoute>
