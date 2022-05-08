@@ -14,7 +14,7 @@ const Inventory = () => {
                         .then(res => res.json())
                         .then(data => setItem(data))
         }, [item])
-        const { img, name, description, quantity, price, sold, supplier } = item ? item : '';
+        const { img, name, description, quantity, price, sold, supplier, _id } = item ? item : '';
 
         // Stock Item:
         const { register, handleSubmit, reset } = useForm();
@@ -68,8 +68,9 @@ const Inventory = () => {
                                                 <div className="item-detail h-100">
                                                         <div className="item-img p-3">
                                                                 <img src={img} className="img-fluid w-100 rounded-3" alt="..." />
+                                                                <h6 className="text-center mt-2 brand-color">Item Id: {_id}</h6>
                                                         </div>
-                                                        <div className="card-body">
+                                                        <div className="card-body mt-2">
                                                                 <h4 className="card-title fw-bold">{name}</h4>
                                                                 <p className="card-text mt-3">{description}</p>
                                                         </div>

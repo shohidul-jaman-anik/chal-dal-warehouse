@@ -34,6 +34,18 @@ const ManageInventory = () => {
                                 })
                 }
         }
+
+        // Handle Update Button:
+        const handleUpdateItem = item => {
+                navigate(`/inventory/${item?._id}`);
+                window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'smooth'
+                });
+        }
+
+        // Loading Spinner:
         if (!items.length) {
                 return <div className="loading d-flex justify-content-center align-items-center">
                         <img className="img-fluid mt-5" src={spinner} alt="" />
@@ -66,6 +78,7 @@ const ManageInventory = () => {
                                                 <th scope="col fw-bold"><h4>Quantity</h4></th>
                                                 <th scope="col fw-bold"><h4>Sold</h4></th>
                                                 <th scope="col fw-bold"><h4>Manage</h4></th>
+                                                <th scope="col fw-bold"><h4>Delete</h4></th>
                                         </tr>
                                 </thead>
                                 <tbody>
@@ -82,7 +95,11 @@ const ManageInventory = () => {
                                                         <td>{item.quantity}kg</td>
                                                         <td>{item.sold}kg</td>
                                                         <td>
-                                                                <button onClick={() => handleDeleteItem(item)} type="button" className="btn btn-danger">Delte Item</button>
+                                                                <button onClick={() => handleUpdateItem(item)} type="button" className="btn btn-success">Update Item</button>
+
+                                                        </td>
+                                                        <td>
+                                                                <button onClick={() => handleDeleteItem(item)} type="button" className="btn btn-danger">Delete Item</button>
 
                                                         </td>
 
