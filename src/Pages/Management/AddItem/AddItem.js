@@ -25,7 +25,7 @@ const AddItem = () => {
                                 console.log(result);
                                 if (result.insertedId) {
                                         toast("Successfully Added New Item");
-                                        // reset();
+                                        reset();
                                 }
                                 else {
                                         toast("Something Went Wrong! Please Try Again!");

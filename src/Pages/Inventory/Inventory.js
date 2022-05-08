@@ -40,8 +40,8 @@ const Inventory = () => {
         // Handle Deliver:
         const handleDeliver = () => {
                 const quantity = item?.quantity - 1;
-                const sold = item?.sold + 1;
-                const updateData = { quantity, sold };
+                // const sold = item?.sold + 1;
+                const updateData = { quantity };
                 fetch(`https://chaldal-warehouse.herokuapp.com/item/${id}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
