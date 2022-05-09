@@ -16,7 +16,7 @@ const ItemCard = ({ item }) => {
                 navigate(`/inventory/${id}`);
         }
         return (
-                <div className="col p-3">
+                <div className="item col p-3">
                         <div className="item-detail h-100">
                                 <div className="item-img p-3">
                                         <img src={img} className="img-fluid w-100 rounded-3 pt-3" alt="..." />

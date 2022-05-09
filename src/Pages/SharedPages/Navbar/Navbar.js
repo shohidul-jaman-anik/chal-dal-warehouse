@@ -6,6 +6,7 @@ import auth from '../../../Hooks/firebase.init';
 import './Navbar.css';
 import defaultUser from '../../images/defaultUser.png';
 import logo from '../../images/chaldal-logo.png';
+import ActiveLink from '../../ActiveLink/ActiveLink';
 
 const Navbar = () => {
         const [user] = useAuthState(auth);
@@ -36,16 +37,16 @@ const Navbar = () => {
                                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                                 <ul className="navbar-nav ms-auto text-center mb-2 mb-lg-0">
                                                         <li className="nav-item">
-                                                                <Link to="/" className="nav-link active fs-5" aria-current="page" href="#">Home</Link>
+                                                                <ActiveLink to="/" className="nav-link active fs-5" aria-current="page" href="#">Home</ActiveLink>
                                                         </li>
                                                         <li className="nav-item">
-                                                                <Link to="/all-items" className="nav-link active fs-5" aria-current="page" href="#">All Items</Link>
+                                                                <ActiveLink to="/all-items" className="nav-link active fs-5" aria-current="page" href="#">All Items</ActiveLink>
                                                         </li>
 
                                                         <li className="nav-item">
                                                                 {
                                                                         user?.email ?
-                                                                                <Link to="/manage-inventories" className="nav-link active fs-5">Manage Items</Link>
+                                                                                <ActiveLink to="/manage-inventories" className="nav-link active fs-5">Manage Items</ActiveLink>
                                                                                 :
                                                                                 ''
                                                                 }
@@ -53,7 +54,7 @@ const Navbar = () => {
                                                         <li className="nav-item">
                                                                 {
                                                                         user?.email ?
-                                                                                <Link to="/add-item" className="nav-link active fs-5">Add Item</Link>
+                                                                                <ActiveLink to="/add-item" className="nav-link active fs-5">Add Item</ActiveLink>
                                                                                 :
                                                                                 ''
                                                                 }
@@ -61,13 +62,13 @@ const Navbar = () => {
                                                         <li className="nav-item">
                                                                 {
                                                                         user?.email ?
-                                                                                <Link to="/my-items" className="nav-link active fs-5">My-Items</Link>
+                                                                                <ActiveLink to="/my-items" className="nav-link active fs-5">My-Items</ActiveLink>
                                                                                 :
                                                                                 ''
                                                                 }
                                                         </li>
                                                         <li className="nav-item">
-                                                                <Link to="/blog" className="nav-link active fs-5" aria-current="page">Blog</Link>
+                                                                <ActiveLink to="/blog" className="nav-link active fs-5" aria-current="page">Blog</ActiveLink>
                                                         </li>
                                                         <li className="nav-item">
                                                                 {

@@ -25,7 +25,7 @@ const Banner = () => {
                 <div className="container-fluid">
                         <div className="banner brand-bg row">
                                 <div className="col-md-6 d-flex justify-content-center">
-                                        <div className="w-75 ms-auto">
+                                        <div className="w-75 mx-auto">
                                                 <h1 className="">Explore More</h1>
                                                 <h1 className="brand-color fw-bold text-decoration-underline">
                                                         <Typical
