@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import stockImg from '../images/stock.png';
 import spinner from '../images/spinner.gif';
@@ -36,6 +36,10 @@ const Inventory = () => {
                         })
         }
 
+        const navigate = useNavigate();
+        const handleManageInventories = () => {
+                navigate('/manage-inventories');
+        }
 
         // Handle Deliver:
         const handleDeliver = () => {
@@ -112,6 +116,11 @@ const Inventory = () => {
                                                                         </svg></button>
                                                                 </div>
                                                         </form>
+                                                </div>
+                                                <div className="w-50 mx-auto mt-3">
+                                                        <div class="d-grid gap-2">
+                                                                <button onClick={() => handleManageInventories()} class="btn btn-success fw-bold" type="button">Manage Inventories</button>
+                                                        </div>
                                                 </div>
                                                 <img src={stockImg} className="img-fluid w-75 mt-3 rounded-3" alt="" />
                                         </div>
