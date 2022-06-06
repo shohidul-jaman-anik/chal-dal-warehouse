@@ -81,8 +81,7 @@ const Navbar = () => {
                                                         </li>
                                                         {
                                                                 user ?
-                                                                        < div className="ps-2 pt-1">
-                                                                                <button onClick={handleSignOut} className="btn login-btn fw-bold">SignOut</button>
+                                                                        < div className="ps-2 pt-1">                                                                 <button onClick={handleSignOut} className="btn login-btn fw-bold">SignOut</button>
                                                                         </div>
                                                                         :
 
